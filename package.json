@@ -1,0 +1,19 @@
+{
+  "name": "e-commerce-green-field-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/areejmayadeh/e-commerce-green-field-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/areejmayadeh/e-commerce-green-field-project/issues"
+  },
+  "homepage": "https://github.com/areejmayadeh/e-commerce-green-field-project#readme"
+}
