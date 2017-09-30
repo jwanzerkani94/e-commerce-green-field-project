@@ -1,6 +1,6 @@
 # Project Name
 
-> E-commerce project
+> E-commerce project :sparkles:
 
 ## Team
 
