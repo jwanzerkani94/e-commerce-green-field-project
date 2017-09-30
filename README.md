@@ -4,9 +4,9 @@
 
 ## Team
 
-  - __Product Owner__: Jwan Azad
-  - __Scrum Master__: Hanan Majali
-  - __Development Team Members__: Areej Ayadeh, Atallah Salah
+  - __Product Owner__: @jwanzerkani94
+  - __Scrum Master__: @Hananmajali
+  - __Development Team Members__: @areejmayadeh , @atallah-salah
 
 ## Table of Contents
 
