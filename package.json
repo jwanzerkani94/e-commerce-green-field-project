@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/areejmayadeh/e-commerce-green-field-project/issues"
   },
-  "homepage": "https://github.com/areejmayadeh/e-commerce-green-field-project#readme"
+  "homepage": "https://github.com/areejmayadeh/e-commerce-green-field-project#readme",
+  "dependencies": {
+    "express": "^4.16.1",
+    "morgan": "^1.9.0"
+  }
 }
