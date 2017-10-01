@@ -64,35 +64,43 @@ angular.module('myapp')
 .component('navbar',{
 
   template:`
-  <nav class="navbar navbar-inverse navbar-fixed-top ">
+
+<!-- Nav-bar -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top ">
   <div>
     <ul class="nav navbar-nav">
       <li><a href="#" >E-Commerce Website</a></li>
       <li><a href="#">Home</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
 
 
-               <li> <form class="navbar-form navbar-right" >
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="username" placeholder="Username">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="password" placeholder="Password">
-                    </div>
-                    <button type="submit" class="btn btn-default">Sign In</button>
-                </form></li>
+<!-- Sign In -->
+
+    <li> <form class="navbar-form navbar-right" action="#" method="post">
+        <div class="form-group">
+            <input type="text" class="form-control" name="username" placeholder="Username">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="password" placeholder="Password">
+        </div>
+        <input type="submit" class="btn btn-default" value="Sign in">
+        </form>
+    </li>
 
 
+<!-- Sign Up model -->
 
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><button  class="btn btn-default" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user"></span> Sign Up</button></li>
       <li>.</li><li>.</li><li>.</li><li>.</li><li>.</li>
+
     </ul>
   </div>
-
 </nav>
+
+
+<!-- Images slides container -->
 
 <div>
   <div id="myCarousel" class="carousel slide w3-animate-top" data-ride="carousel" data-interval="1800">
@@ -106,7 +114,9 @@ angular.module('myapp')
       <li data-target="#myCarousel" data-slide-to="5"></li>
     </ol>
 
-    <!-- Wrapper for slides -->
+
+<!-- images links for slides -->
+
     <div class="carousel-inner">
       <div class="item active">
         <img src="component/imgs/1.jpeg" style="width:100%;height:600px;">
@@ -130,7 +140,9 @@ angular.module('myapp')
       </div>
     </div>
 
-    <!-- Left and right controls -->
+
+<!-- Left and right controls -->
+
     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left"></span>
       <span class="sr-only">Previous</span>
@@ -142,12 +154,16 @@ angular.module('myapp')
   </div>
 </div>
 
+<!-- Nav-bar for search -->
+
   <center>
 <nav class="navbar navbar-inverse form-group w3-animate-opacity"><br>
 <input class="form-control" id="search" type="text" ng-model="search"  placeholder="Search..">
 <br></nav>
 </center>
 
+
+<!-- Styling for search -->
 
   <style> 
   #search[type=text] {
@@ -172,30 +188,62 @@ angular.module('myapp')
 
 <br>
 
+<!-- filter by search -->
 
 <center>
-
 <div ng-controller="myctrl" id="portfolio" class="container-fluid text-center ">
 <div class="row slide">
 <div id="item" ng-repeat="item in data | filter : search" class="col-sm-2 container w3-animate-zoom" >
+
+
+<!-- Displaying Items with image , name and price -->
 
    <br>
   <img class="image" style="border-radius: 20px 20px;"  ng-src={{item.image}} /> <br>
   Name:{{item.name}} <br>
   price: {{item.price}}<br>
   
-  
-<div class="overlay">
-    <div class="text">{{item.disc}}<br>By : {{item.user_name}}<br><br><button type="button" class="btn btn-primary btn-md">Buy it</button>
-  <button type="button" class="btn btn-primary btn-md">add to list</button><br><br></div>
-  </div>
-</div>
-</div>
-</div></center>
+<!-- display discribtion for item --> 
 
- 
+  <div class="overlay">
+     <div class="text">{{item.disc}}<br>By : {{item.user_name}}<br><br><button type="button" class="btn btn-primary btn-md">Buy it</button>
+      <button type="button" class="btn btn-primary btn-md">add to list</button><br><br></div>
+    </div>
+    </div>
+    </div>
+  </div></center>
+
+
+
+<!-- Modal for sign Up -->
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+<!-- Sign Up Modal content -->
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Sign Up</h4>
+        </div>
+        <div class="modal-body">
+          
+<form action="#" method="post">
+<input type="text" placeholder="Username">
+<input type="password" placeholder="Password">
+<input type="submit" value="submit" >
+</form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div> 
 `
-
 })
   
   
