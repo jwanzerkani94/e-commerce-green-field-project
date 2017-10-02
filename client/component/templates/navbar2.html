@@ -1,0 +1,64 @@
+<!-- Nav-bar for search -->
+<center>
+<nav class="navbar navbar-inverse form-group w3-animate-opacity"><br>
+<input class="form-control w3-animate-zoom" id="search" type="text" ng-model="search"  placeholder="Search..">
+<br></nav>
+</center>
+<!-- Styling for search -->
+<style>
+#search[type=text] {
+  width: 230px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+#search[type=text]:focus {
+  width: 50%;
+}
+</style>
+<br>
+<!-- filter item by search -->
+<center>
+<div ng-controller="myctrl" id="portfolio" class="container-fluid text-center ">
+<div class="row slide">
+<div id="item" ng-repeat="item in data | filter : search" class="col-sm-2 container w3-animate-zoom" >
+<!-- Displaying Items with image , name and price -->
+<br>
+<img class="image w3-animate-zoom" style="border-radius: 20px 20px;"  ng-src={{item.image}} /> <br>
+Name:{{item.name}} <br>
+price: {{item.price}}<br>
+<!-- display discribtion for item -->
+<div class="overlay">
+   <div class="text">{{item.disc}}<br>By : {{item.user_name}}<br><br><button type="button" class="btn btn-primary btn-md">Buy it</button>
+    <button type="button" class="btn btn-primary btn-md">add to list</button><br><br></div>
+  </div>
+  </div>
+</div>
+</div></center>
+<!-- Modal for sign Up -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+<!-- Sign Up Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Sign Up</h4>
+      </div>
+      <div class="modal-body">
+<input id="Suser" type="text" class="form-control w3-animate-zoom" placeholder="Username"><br>
+<input id="Spass" type="password" class="form-control w3-animate-zoom" placeholder="Password"><br>
+<button  class="btn btn-default w3-animate-zoom" ng-click="SignUp()">Submit</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
