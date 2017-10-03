@@ -12,7 +12,9 @@ var Lpass=$('#Lpass').val();
         username:Luser,
         password:Lpass
       })
+
     })
+    console.log('hi')
   },
 
 $scope.SignUp=function(){
@@ -23,11 +25,12 @@ var Spass=$('#Spass').val();
       type:'POST',
       url:'/signup',
       data:JSON.stringify({
-        username:Luser,
-        password:Lpass
+        username:Suser,
+        password:Spass
       })
 
     })
+      console.log('hi5')
   },
   $scope.data=[
   {
@@ -91,6 +94,6 @@ var Spass=$('#Spass').val();
   ]
 })
 .component('navbar',{
-
+  controller:'myctrl',
   templateUrl:'component/templates/navbar1.html'
 })
