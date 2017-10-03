@@ -86,3 +86,23 @@ body{
 	-ms-transform: translate(-50%, -50%);
 
 }
+
+/*-------for-text-after-the-slideshow---------*/
+.wrap{
+    margin: auto;
+    }
+.text_over_image{
+    position: absolute;
+    top: 500px;
+    left:0;
+    right:0;
+    bottom:0;
+    color:#fff;
+    height:100px;
+    background-color: black;
+}
+
+
+.blur {
+-webkit-filter: blur(1.5px) grayscale(50%);
+}

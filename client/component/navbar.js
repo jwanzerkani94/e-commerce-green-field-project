@@ -1,5 +1,34 @@
 angular.module('myapp')
 .controller('myctrl',function($scope){
+
+$scope.Login=function(){
+var Luser=$('#Luser').val();
+var Lpass=$('#Lpass').val();
+    $.ajax({
+      async:false,
+      type:'post',
+      url:'/login',
+      data:JSON.stringify({
+        username:Luser,
+        password:Lpass
+      })
+    })
+  },
+
+$scope.SignUp=function(){
+var Suser=$('#Suser').val();
+var Spass=$('#Spass').val();
+      $.ajax({
+      async:false,
+      type:'POST',
+      url:'/signup',
+      data:JSON.stringify({
+        username:Luser,
+        password:Lpass
+      })
+
+    })
+  },
   $scope.data=[
   {
   image:'component/imgs/1.jpeg',
@@ -62,7 +91,7 @@ angular.module('myapp')
   ]
 })
 .component('navbar',{
-
+  controller:'myctrl',
   template:`
 
 <!-- Nav-bar -->
@@ -78,22 +107,18 @@ angular.module('myapp')
 
 <!-- Sign In -->
 
-    <li> <form class="navbar-form navbar-right" action="#" method="post">
-        <div class="form-group">
-            <input type="text" class="form-control" name="username" placeholder="Username">
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" name="password" placeholder="Password">
-        </div>
-        <input type="submit" class="btn btn-default" value="Sign in">
-        </form>
-    </li>
+    
+            <li><a><input id="Luser" type="text" class="form-control w3-animate-zoom" name="username" placeholder="Username"></a></li>
+
+          <li><a><input id="Lpass" type="password" class="form-control w3-animate-zoom" name="password" placeholder="Password"></a></li>
+
+        <li><a><button  class="btn btn-default w3-animate-zoom"  ng-click="Login()">Sign in</button></a></li>
 
 
 <!-- Sign Up model -->
-
-      <li><button  class="btn btn-default" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user"></span> Sign Up</button></li>
-      <li>.</li><li>.</li><li>.</li><li>.</li><li>.</li>
+  <li><a></a></li>
+      <li><a><button  class="btn btn-default w3-animate-zoom" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user"></span> Sign Up</button></a></li>
+      <li><a></a></li>
 
     </ul>
   </div>
@@ -116,9 +141,10 @@ angular.module('myapp')
 
 
 <!-- images links for slides -->
-
+<div class="wrap">
     <div class="carousel-inner">
       <div class="item active">
+
         <img src="component/imgs/1.jpeg" style="width:100%;height:600px;">
       </div>
 
@@ -139,7 +165,8 @@ angular.module('myapp')
         <img src="component/imgs/6.jpg"  style="width:100%;height:600px;">
       </div>
     </div>
-
+<h1 class="text_over_image blur"><marquee behavior="scroll" direction="left" scrollamount="25">Wellcome to E-Commerce Website Built By : <font color="red" >Conj Scrips</font> Team.</marquee></h1>
+</div>
 
 <!-- Left and right controls -->
 
@@ -158,7 +185,7 @@ angular.module('myapp')
 
   <center>
 <nav class="navbar navbar-inverse form-group w3-animate-opacity"><br>
-<input class="form-control" id="search" type="text" ng-model="search"  placeholder="Search..">
+<input class="form-control w3-animate-zoom" id="search" type="text" ng-model="search"  placeholder="Search..">
 <br></nav>
 </center>
 
@@ -188,7 +215,7 @@ angular.module('myapp')
 
 <br>
 
-<!-- filter by search -->
+<!-- filter item by search -->
 
 <center>
 <div ng-controller="myctrl" id="portfolio" class="container-fluid text-center ">
@@ -199,7 +226,7 @@ angular.module('myapp')
 <!-- Displaying Items with image , name and price -->
 
    <br>
-  <img class="image" style="border-radius: 20px 20px;"  ng-src={{item.image}} /> <br>
+  <img class="image w3-animate-zoom" style="border-radius: 20px 20px;"  ng-src={{item.image}} /> <br>
   Name:{{item.name}} <br>
   price: {{item.price}}<br>
   
@@ -229,11 +256,11 @@ angular.module('myapp')
         </div>
         <div class="modal-body">
           
-<form action="#" method="post">
-<input type="text" placeholder="Username">
-<input type="password" placeholder="Password">
-<input type="submit" value="submit" >
-</form>
+
+<input id="Suser" type="text" class="form-control w3-animate-zoom" placeholder="Username"><br>
+<input id="Spass" type="password" class="form-control w3-animate-zoom" placeholder="Password"><br>
+<button  class="btn btn-default w3-animate-zoom" ng-click="SignUp()">Submit</button>
+
 
         </div>
         <div class="modal-footer">
