@@ -1,14 +1,9 @@
-var mongoose = require('mongoose');
+var mongoose=require('mongoose');
 var Schema = mongoose.Schema;
 
-var mongoPAth = 'mongodb://127.0.0.1/greenfield';
-mongoose.connect(mongoPAth);
+var mongoDB= 'mongodb://127.0.0.1/greenfield';
+mongoose.connect( process.env.DBSERVER ||mongoDB, { useMongoClient: true });
 
-mongoose.connection.once('open',function(){
-	console.log('connected to database');
-}).on('error',function(error){
-	console.log('Connection error:',error);
-});
 
 
 var userSchema = new Schema({
@@ -19,7 +14,7 @@ var userSchema = new Schema({
 });
 
 var itemSchema = new Schema({
-	username: { type: Schema.Types.ObjectId, ref:'User'},
+	user: { type: Schema.Types.ObjectId, ref:'User'},
 	name: String,
 	type: String,
 	description: String,
@@ -27,8 +22,50 @@ var itemSchema = new Schema({
 	image: String
 });
 
+var db=mongoose.connection;
+db.on('error',console.error.bind(console,' mongoDB connection error '));
+db.once('open', function(){
+	console.log('mongoDB connection open')
+});
+
 var User = mongoose.model('User',userSchema);
 var Item = mongoose.model('Item',itemSchema);
 
 module.exports=User;
 // module.exports=Item;
+
+var jwan=new User({
+ 	_id:new mongoose.Types.ObjectId(),
+ 	username:'Areej',
+ 	password:'wdf',
+ 	// items:[{name:'iphone',type:'apple',description:'dsfg',price:1000,image:'dgsfd'}]
+ })
+
+ jwan.save(function(err,jwan){
+ 	if(err){
+ 		console.log(err);
+ 	}else{
+ 		console.log(jwan);
+ 	}
+ })
+
+ var item1=new Item({
+ 	user: jwan._id,
+ 	name:'iphone',
+ 	type:'apple',
+ 	description:'dsfg',
+ 	price:1000,
+ 	image:'dgsfd'
+ })
+ item1.save(function(err){
+ 	if(err){
+ 		console.log(err);
+ 	}
+ })
+
+
+
+
+
+
+
