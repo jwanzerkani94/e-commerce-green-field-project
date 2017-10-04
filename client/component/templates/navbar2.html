@@ -2,8 +2,8 @@
 <center>
 <nav class="navbar navbar-inverse form-group w3-animate-opacity"><br>
   <ul>
-  <li><a><button  class="btn btn-default w3-animate-zoom" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-user"></span>Add Item</button></a></li>
-<li><input class="form-control w3-animate-zoom" id="search" type="text" ng-model="search"  placeholder="Search.."></li>
+  
+<input class="form-control w3-animate-zoom" id="search" type="text" ng-model="search"  placeholder="Search..">
 </ul>
 <br></nav>
 </center>
@@ -35,12 +35,12 @@
 <!-- Displaying Items with image , name and price -->
 <br>
 <img class="image w3-animate-zoom" style="border-radius: 20px 20px;"  ng-src={{item.image}} /> <br>
-Name:{{item.name}} <br>
-price: {{item.price}}<br>
+Name:{{item.name}}<br>
+price: {{item.price}} JD<br>
 <!-- display discribtion for item -->
 <div class="overlay">
-   <div class="text">{{item.disc}}<br>By : {{item.user_name}}<br><br><button type="button" class="btn btn-primary btn-md">Buy it</button>
-    <button type="button" class="btn btn-primary btn-md">add to list</button><br><br></div>
+   <div class="text"><p>Description : <br>{{item.description}}<br><br>By: <br>{{item.username}}</p>
+    <button class="btn btn-primary btn-md"  ng-click="addtocard($index)">add to card</button><br><br></div>
   </div>
   </div>
 </div>
@@ -55,13 +55,17 @@ price: {{item.price}}<br>
         <h4 class="modal-title">Sign Up</h4>
       </div>
       <div class="modal-body">
+       
 <input id="Suser" type="text" class="form-control w3-animate-zoom" placeholder="Username"><br>
 <input id="Spass" type="password" class="form-control w3-animate-zoom" placeholder="Password"><br>
 <button  class="btn btn-default w3-animate-zoom" ng-click="SignUp()">Submit</button>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
       </div>
     </div>
   </div>
 </div>
+
+

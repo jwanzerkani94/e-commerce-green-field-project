@@ -1,5 +1,50 @@
 angular.module('myapp',[])
 .controller('myctrl',function($scope){
+  // $scope.userdata=[]
+
+  // $scope.userdata=$scope.userdata1
+$scope.isloggedin=true;
+$scope.addtocard=function (index) {
+  // if($scope.userdata===undefined){
+  //   $scope.userdata=[]
+  // }
+  // $scope.userdata.push($scope.data[index])
+  $scope.userdata=[1,2,3]
+   $scope.$watch('userdata', function() {
+        alert('hey, myVar has changed!');
+    });
+  
+  // $scope.$apply()
+  console.log("this is index",$scope.data[index])
+  console.log("this is data",$scope.userdata)
+}
+
+$scope.logout=function(){
+  console.log($scope.userdata)
+    $.ajax({
+      async:false,
+      type:'post',
+      url:'/logout',
+      data:JSON.stringify({
+        logout:'logout'
+      })
+
+    })
+    $.ajax({
+      async:false,
+      type:'get',
+      url:'/result',
+      success:function (result) {
+        if(result=='false'){
+          $scope.isloggedin=false;
+        }else{
+          $scope.isloggedin=true;
+
+        }
+      }
+    })
+
+  };
 
 $scope.Login=function(){
 var Luser=$('#Luser').val();
@@ -14,8 +59,31 @@ var Lpass=$('#Lpass').val();
       })
 
     })
-    console.log('hi')
-  },
+    $.ajax({
+      async:false,
+      type:'get',
+      url:'/result',
+      success:function (result) {
+        if(result=='false'){
+          $scope.isloggedin=false;
+        }else{
+          $scope.isloggedin=true;
+          alert('Wrong username or password!!!')
+        }
+      }
+    })
+    
+  };
+
+$.ajax({
+  async:false,
+  type:'get',
+  url:'/data',
+  success:function (data) {
+    $scope.data=data;
+    console.log(data)
+  }
+});
 
 $scope.SignUp=function(){
 var Suser=$('#Suser').val();
@@ -31,67 +99,8 @@ var Spass=$('#Spass').val();
 
     })
       console.log('hi5')
-  },
-  $scope.data=[
-  {
-  image:'component/imgs/1.jpeg',
-  disc:'cpu:core i3, ram:4 gb ',
-  type: 'Toshipa',
-  price:'250 JD',
-  name:'Toshipa power',
-  user_name:'hanan majli'
-  },
-  {
-  image:'component/imgs/2.jpg',
-  disc:'cpu:core i4, ram:5 gb ',
-  type: 'Dell',
-  price:'300 JD',
-  name:'Dell inspairon 5050',
-  user_name:'atallah salah'
-
-  },
-  {
- image:'component/imgs/3.jpg',
-  disc:'cpu:core i5, ram:2 gb ',
-  type: 'Toshipa',
-  price:'500 JD',
-  name:'Toshipa ',
-  user_name:'jwan azad'
-  },
-  {
- image:'component/imgs/4.jpg',
-  disc:'cpu:core i4, ram:2 gb ',
-  type: 'Toshipa',
-  price:'400 JD',
-  name:'Toshipa power',
-  user_name:'areej'
-  }
-,
- {
- image:'component/imgs/4.jpg',
-  disc:'cpu:core i4, ram:2 gb ',
-  type: 'Toshipa',
-  price:'400 JD',
-  name:'Toshipa power',
-  user_name:'areej'
-  },
-   {
- image:'component/imgs/4.jpg',
-  disc:'cpu:core i4, ram:2 gb ',
-  type: 'Toshipa',
-  price:'400 JD',
-  name:'Toshipa power',
-  user_name:'areej'
-  },
-   {
- image:'component/imgs/4.jpg',
-  disc:'cpu:core i4, ram:2 gb ',
-  type: 'Toshipa',
-  price:'400 JD',
-  name:'Toshipa power',
-  user_name:'areej'
-  }
-  ]
+  };
+  
 })
 .component('navbar',{
   controller:'myctrl',

@@ -13,20 +13,13 @@ var Aimage=$('#Aimage').val();
       data:JSON.stringify({
         name:Aname,
         price:Aprice,
-        discribtion:Adisc,
+        description:Adisc,
         image:Aimage
       })
 
     })
-    console.log('hi')
+    console.log('add item')
   }
-
-
-
-
-
-
-
 })
 .component('add',{
 	controller:'myadd',
