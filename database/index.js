@@ -15,6 +15,7 @@ var userSchema = new Schema({
 
 var itemSchema = new Schema({
 	user: { type: Schema.Types.ObjectId, ref:'User'},
+	username:String,
 	name: String,
 	description: String,
 	price: Number,
