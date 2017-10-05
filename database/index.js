@@ -15,8 +15,8 @@ var userSchema = new Schema({
 
 var itemSchema = new Schema({
 	user: { type: Schema.Types.ObjectId, ref:'User'},
+	username:String,
 	name: String,
-	type: String,
 	description: String,
 	price: Number,
 	image: String
@@ -31,37 +31,40 @@ db.once('open', function(){
 var User = mongoose.model('User',userSchema);
 var Item = mongoose.model('Item',itemSchema);
 
-module.exports=User;
+module.exports={
+	User:User,
+	Item:Item
+};
 // module.exports=Item;
 
-var jwan=new User({
- 	_id:new mongoose.Types.ObjectId(),
- 	username:'Areej',
- 	password:'wdf',
- 	// items:[{name:'iphone',type:'apple',description:'dsfg',price:1000,image:'dgsfd'}]
- })
+// var jwan=new User({
+//  	_id:new mongoose.Types.ObjectId(),
+//  	username:'Areej',
+//  	password:'wdf',
+//  	// items:[{name:'iphone',type:'apple',description:'dsfg',price:1000,image:'dgsfd'}]
+//  })
 
- jwan.save(function(err,jwan){
- 	if(err){
- 		console.log(err);
- 	}else{
- 		console.log(jwan);
- 	}
- })
+//  jwan.save(function(err,jwan){
+//  	if(err){
+//  		console.log(err);
+//  	}else{
+//  		console.log(jwan);
+//  	}
+//  })
 
- var item1=new Item({
- 	user: jwan._id,
- 	name:'iphone',
- 	type:'apple',
- 	description:'dsfg',
- 	price:1000,
- 	image:'dgsfd'
- })
- item1.save(function(err){
- 	if(err){
- 		console.log(err);
- 	}
- })
+//  var item1=new Item({
+//  	user: jwan._id,
+//  	name:'iphone',
+//  	type:'apple',
+//  	description:'dsfg',
+//  	price:1000,
+//  	image:'dgsfd'
+//  })
+//  item1.save(function(err){
+//  	if(err){
+//  		console.log(err);
+//  	}
+//  })
 
 
 
