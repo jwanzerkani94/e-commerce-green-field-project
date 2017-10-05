@@ -1,8 +1,8 @@
 var mongoose=require('mongoose');
 var Schema = mongoose.Schema;
 
-var mongoDB= 'mongodb://127.0.0.1/greenfield';
-mongoose.connect( process.env.DBSERVER ||mongoDB, { useMongoClient: true });
+var mongoDB= 'mongodb://greenfield:conj1234@ds163494.mlab.com:63494/greenfield';
+mongoose.connect( mongoDB, { useMongoClient: true });
 
 
 
@@ -65,10 +65,3 @@ module.exports={
 //  		console.log(err);
 //  	}
 //  })
-
-
-
-
-
-
-

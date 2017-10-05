@@ -2,7 +2,7 @@
 <center>
 <nav class="navbar navbar-inverse form-group w3-animate-opacity"><br>
   <ul>
-  
+
 <input class="form-control w3-animate-zoom" id="search" type="text" ng-model="search"  placeholder="Search..">
 </ul>
 <br></nav>
@@ -38,10 +38,10 @@
 Name:{{item.name}}<br>
 price: {{item.price}} JD<br>
 <!-- display discribtion for item -->
-<div class="overlay">
+<div class="overlay"><p>{
    <div class="text"><p>Description : <br>{{item.description}}<br><br>By: <br>{{item.username}}</p>
     <button class="btn btn-primary btn-md"  ng-click="addtocard($index)">add to card</button><br><br></div>
-  </div>
+  </div>}</p>
   </div>
 </div>
 </div></center>
@@ -55,7 +55,7 @@ price: {{item.price}} JD<br>
         <h4 class="modal-title">Sign Up</h4>
       </div>
       <div class="modal-body">
-       
+
 <input id="Suser" type="text" class="form-control w3-animate-zoom" placeholder="Username"><br>
 <input id="Spass" type="password" class="form-control w3-animate-zoom" placeholder="Password"><br>
 <button  class="btn btn-default w3-animate-zoom" ng-click="SignUp()">Submit</button>
@@ -67,5 +67,3 @@ price: {{item.price}} JD<br>
     </div>
   </div>
 </div>
-
-

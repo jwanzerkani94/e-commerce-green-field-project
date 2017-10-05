@@ -1,26 +1,31 @@
 angular.module('myapp',[])
-.controller('myctrl',function($scope){
-  // $scope.userdata=[]
-
+.controller('myctrl',['$scope',function($scope){
+  $scope.userdata={'a':'hello'};
+  $scope.b = {prop: 0};
+  $scope.a = $scope.b;
   // $scope.userdata=$scope.userdata1
 $scope.isloggedin=true;
 $scope.addtocard=function (index) {
   // if($scope.userdata===undefined){
   //   $scope.userdata=[]
   // }
-  // $scope.userdata.push($scope.data[index])
-  $scope.userdata=[1,2,3]
-   $scope.$watch('userdata', function() {
-        alert('hey, myVar has changed!');
-    });
-  
+
+  //  go(x)
   // $scope.$apply()
   console.log("this is index",$scope.data[index])
   console.log("this is data",$scope.userdata)
 }
-
+var go=function (userdata) {
+  console.log('go fun is work')
+       setTimeout(function () {
+        $scope.$apply(function () {
+            $scope.a.prop = 10;
+            $scope.b.prop = 3;
+        });
+    });
+}
 $scope.logout=function(){
-  console.log($scope.userdata)
+  console.log($scope.b.prop,$scope.a.prop)
     $.ajax({
       async:false,
       type:'post',
@@ -72,7 +77,7 @@ var Lpass=$('#Lpass').val();
         }
       }
     })
-    
+
   };
 
 $.ajax({
@@ -100,8 +105,8 @@ var Spass=$('#Spass').val();
     })
       console.log('hi5')
   };
-  
-})
+
+}])
 .component('navbar',{
   controller:'myctrl',
   templateUrl:'component/templates/navbar1.html'

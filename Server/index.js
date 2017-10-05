@@ -10,7 +10,7 @@ var app=express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
-var port=process.env.PORT || 3000;
+var port=process.env.PORT || 5555;
 
 
 app.use(express.static(__dirname+'/../client/'))
@@ -75,7 +75,7 @@ app.post('/login',function(req,res) {
 				res.redirect('/');            //********************************
 			}else{
 				if(password===user.password){
-                   
+
                    result='false';
                    console.log(result,'correct password')
                    console.log(user)
@@ -86,7 +86,7 @@ app.post('/login',function(req,res) {
 				}
 
 
-			}	
+			}
 		}
 	});
 });
@@ -101,7 +101,7 @@ app.post('/signup',function(req, res){
 		}else{
 			if(user){
 				result='false';
-				console.log('this user already exist')
+				res.redirect('/');
 
 			}else{
 				var newUser = {
@@ -111,7 +111,7 @@ app.post('/signup',function(req, res){
 				}
 				models.User.create(newUser).then(function(){
 					createSession(req,res,newUser);
-					
+
 				})
 				result='true';
 			}
@@ -159,9 +159,7 @@ app.get('/data',function(req,res){
 })
 
 
-app.listen(port,function(){
-	console.log('conjScribers listeninig on port '+port);
-})
+app.listen(port)
 
  // var user=new User({
  // 	_id:1,
