@@ -1,7 +1,9 @@
 angular.module('myapp',[])
-.controller('myctrl',function($scope,$timeout){
+.controller('myctrl',function($scope){
   //array for items (item in cart)
 $scope.userdata='hi';
+// make default result to hide element
+$scope.isloggedin=true;
 // list item in cart --- not working
 $scope.addtocard=function (index) {
   console.log('it works')
@@ -94,8 +96,11 @@ var Spass=$('#Spass').val();
     url:'/result',
     success:function (result) {
       if(result=='false'){
+        $scope.isloggedin=false;
+
         alert('this username is already exists')
       }else{
+        $scope.isloggedin=true;
         alert('successfully registered welcome '+Suser)
       }
     }
