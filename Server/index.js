@@ -10,7 +10,7 @@ var app=express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
-var port=process.env.PORT || 5555;
+var port=process.env.PORT || 3000;
 
 
 app.use(express.static(__dirname+'/../client/'))
