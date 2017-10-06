@@ -102,6 +102,24 @@ body{
     background-color: black;
 }
 .blur {
--webkit-filter: blur(1.5px) grayscale(50%);
+filter: blur(1.5px) grayscale(50%);
 box-shadow: 1px 1px 2px black, 0 0 55px black, 0 0 5px black;
+}
+/*modal style*/
+.close{
+	background-color: black;
+}
+.modal-header ,.modal-footer{
+	/*background: blur(5px) grayscale(50%);*/
+	background-color: rgba(209, 0, 0, 0.7);
+}
+/*.modal-body{
+	background-color: rgba(209, 0, 0, 0.2);
+}*/
+.input{
+	background-color: rgba(209, 0, 0, 0.2);
+
+}
+.input::placeholder {
+  color: black;
 }

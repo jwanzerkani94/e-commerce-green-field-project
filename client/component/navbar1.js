@@ -1,31 +1,15 @@
 angular.module('myapp',[])
-.controller('myctrl',['$scope',function($scope){
-  $scope.userdata={'a':'hello'};
-  $scope.b = {prop: 0};
-  $scope.a = $scope.b;
-  // $scope.userdata=$scope.userdata1
-$scope.isloggedin=true;
+.controller('myctrl',function($scope){
+  //array for items (item in cart)
+$scope.userdata;
+// list item in cart --- not working
 $scope.addtocard=function (index) {
-  // if($scope.userdata===undefined){
-  //   $scope.userdata=[]
-  // }
-
-  //  go(x)
-  // $scope.$apply()
-  console.log("this is index",$scope.data[index])
-  console.log("this is data",$scope.userdata)
+  $scope.userdata="welcome"
+  // $scope.userdata.push($scope.data[index])
 }
-var go=function (userdata) {
-  console.log('go fun is work')
-       setTimeout(function () {
-        $scope.$apply(function () {
-            $scope.a.prop = 10;
-            $scope.b.prop = 3;
-        });
-    });
-}
+// logout fuction when logout clicked
 $scope.logout=function(){
-  console.log($scope.b.prop,$scope.a.prop)
+  console.log($scope.userdata)
     $.ajax({
       async:false,
       type:'post',
@@ -33,7 +17,7 @@ $scope.logout=function(){
       data:JSON.stringify({
         logout:'logout'
       })
-
+//get result if user logged out to make sure and to hide logut elemnt , additem and show my cart list
     })
     $.ajax({
       async:false,
@@ -44,42 +28,42 @@ $scope.logout=function(){
           $scope.isloggedin=false;
         }else{
           $scope.isloggedin=true;
-
         }
       }
     })
-
   };
-
+// login fuction when login clicked
 $scope.Login=function(){
+// get value of username and password input
 var Luser=$('#Luser').val();
 var Lpass=$('#Lpass').val();
-    $.ajax({
-      async:false,
-      type:'post',
-      url:'/login',
-      data:JSON.stringify({
-        username:Luser,
-        password:Lpass
-      })
-
+// send username and password value
+  $.ajax({
+    async:false,
+    type:'post',
+    url:'/login',
+    data:JSON.stringify({
+      username:Luser,
+      password:Lpass
     })
-    $.ajax({
-      async:false,
-      type:'get',
-      url:'/result',
-      success:function (result) {
-        if(result=='false'){
-          $scope.isloggedin=false;
-        }else{
-          $scope.isloggedin=true;
-          alert('Wrong username or password!!!')
-        }
+// get result to know if user registered already
+  })
+  $.ajax({
+    async:false,
+    type:'get',
+    url:'/result',
+    success:function (result) {
+      if(result=='false'){
+        $scope.isloggedin=false;
+        alert('Weclome '+Luser)
+      }else{
+        $scope.isloggedin=true;
+        alert('Wrong username or password!!!')
       }
-    })
-
-  };
-
+    }
+  })
+};
+// get data (items) from server(database)
 $.ajax({
   async:false,
   type:'get',
@@ -89,25 +73,38 @@ $.ajax({
     console.log(data)
   }
 });
-
+// login fuction when SignUp clicked
 $scope.SignUp=function(){
+// get value of username and password input
 var Suser=$('#Suser').val();
 var Spass=$('#Spass').val();
-      $.ajax({
-      async:false,
-      type:'POST',
-      url:'/signup',
-      data:JSON.stringify({
-        username:Suser,
-        password:Spass
-      })
-
+// send username and password value
+  $.ajax({
+    async:false,
+    type:'POST',
+    url:'/signup',
+    data:JSON.stringify({
+      username:Suser,
+      password:Spass
+  })
+// get result to know if username already exists
     })
-      console.log('hi5')
-  };
-
-}])
+  $.ajax({
+    async:false,
+    type:'get',
+    url:'/result',
+    success:function (result) {
+      if(result=='false'){
+        alert('this username is already exists')
+      }else{
+        alert('successfully registered welcome '+Suser)
+      }
+    }
+  })
+};
+///////////////////////////////////////////
+})
 .component('navbar',{
-  controller:'myctrl',
-  templateUrl:'component/templates/navbar1.html'
+          controller:'myctrl',
+          templateUrl:'component/templates/navbar1.html'
 })
