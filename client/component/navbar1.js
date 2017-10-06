@@ -1,15 +1,15 @@
 angular.module('myapp',[])
-.controller('myctrl',function($scope){
+.controller('myctrl',function($scope,$timeout){
   //array for items (item in cart)
-$scope.userdata;
+$scope.userdata='hi';
 // list item in cart --- not working
 $scope.addtocard=function (index) {
-  $scope.userdata="welcome"
+  console.log('it works')
+  $scope.userdataa="welcome"
   // $scope.userdata.push($scope.data[index])
 }
 // logout fuction when logout clicked
 $scope.logout=function(){
-  console.log($scope.userdata)
     $.ajax({
       async:false,
       type:'post',
@@ -58,7 +58,7 @@ var Lpass=$('#Lpass').val();
         alert('Weclome '+Luser)
       }else{
         $scope.isloggedin=true;
-        alert('Wrong username or password!!!')
+      alert('Wrong username or password!!!')
       }
     }
   })
@@ -70,7 +70,6 @@ $.ajax({
   url:'/data',
   success:function (data) {
     $scope.data=data;
-    console.log(data)
   }
 });
 // login fuction when SignUp clicked
@@ -103,7 +102,9 @@ var Spass=$('#Spass').val();
   })
 };
 ///////////////////////////////////////////
+
 })
+
 .component('navbar',{
           controller:'myctrl',
           templateUrl:'component/templates/navbar1.html'

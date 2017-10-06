@@ -52,7 +52,6 @@ app.post('/login',function(req,res) {
                    result='false';
                  createSession(req,res,user);
 				}else{
-					console.log(result,'wrong password')
 					res.redirect('/');
 				}
 

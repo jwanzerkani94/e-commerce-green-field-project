@@ -1,8 +1,7 @@
 <!-- top Navbar -->
 <nav class="navbar navbar-inverse navbar-fixed-top ">
-<div>
 <ul class="nav navbar-nav">
-  <li><a href="#" >E-Commerce Website</a></li>
+<li><a href="#">E-Commerce Website</a></li>
 </ul>
 <ul class="nav navbar-nav navbar-right">
 <!-- input text for username -->
@@ -14,12 +13,11 @@
 <!-- Add item button to show additem modalin modal.html -->
 <li><a><button  class="btn btn-default w3-animate-zoom" ng-show='!isloggedin'  data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-user"></span>Add Item</button></a></li>
 <!-- Show My card list button to show modal in modal.html-->
-<li><a><button  class="btn btn-default w3-animate-zoom" ng-show='!isloggedin' data-toggle="modal" data-target="#myModal3"><span class="glyphicon glyphicon-user"></span>Show my card list</button></a></li>
+<li><a><button  class="btn btn-default w3-animate-zoom" ng-show='!isloggedin' data-toggle="modal" data-target="#myModal3"><span class="glyphicon glyphicon-shopping-cart"></span></button></a></li>
 <!-- Log out button to call logout function in navbar1.js -->
 <li><a><button  class="btn btn-default w3-animate-zoom" ng-show='!isloggedin' ng-click="logout()">logout</button></a></li>
 <!-- Sign Up button to show signup modal  and inside modal it call  SignUp in navbar1.js-->
 <li><a><button  ng-show='isloggedin' class="btn btn-default w3-animate-zoom" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user"></span> Sign Up</button></a></li>
 <li><a></a></li>
 </ul>
-</div>
 </nav>

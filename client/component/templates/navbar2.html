@@ -19,7 +19,7 @@
   background-position: 10px 10px;
   background-repeat: no-repeat;
   padding: 12px 20px 12px 40px;
-  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
 }
 #search[type=text]:focus {
@@ -38,10 +38,10 @@
 Name:{{item.name}}<br>
 price: {{item.price}} JD<br>
 <!-- display discribtion for item -->
-<div class="overlay"><p>
-   <div class="text"><p>Description : <br>{{item.description}}<br><br>By: <br>{{item.username}}</p>
-    <button class="btn btn-primary btn-md"  type="button" ng-click="userdata+1" >add to card</button><br><br></div>
- </div></p>
+<div class="overlay">
+   <div class="text"><br>Description : <p>{{item.description}}</p>By : {{item.username}}
+    <button class="btn btn-primary btn-md"  type="button" ng-click="addtocard($index)" >add to cart</button><br><br></div>
+ </div>
   </div>
 </div>
 </div></center>

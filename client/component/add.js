@@ -1,3 +1,4 @@
+
 angular.module('myapp')
 .controller('myadd', function($scope){
 
@@ -11,17 +12,21 @@ var Adisc=$('#Adisc').val();
   // get input value of image item from add item model
 var Aimage=$('#Aimage').val();
 // send the values to the server
-    $.ajax({
-      async:false,
-      type:'post',
-      url:'/add',
-      data:JSON.stringify({
-        name:Aname,
-        price:Aprice,
-        description:Adisc,
-        image:Aimage
-      })
+if(Aname.length<4 || Aprice.length<4  || Aimage.length<4 ){
+  alert('please fill out text')
+}else{
+$.ajax({
+  type:'post',
+  url:'/add',
+  data:JSON.stringify({
+    name:Aname,
+    price:Aprice,
+    description:Adisc,
+    image:Aimage
+  })
+})
+  alert('successfully added '+Aname)
 
-    })
+    }
   }
 })
