@@ -35,33 +35,3 @@ module.exports={
 	User:User,
 	Item:Item
 };
-// module.exports=Item;
-
-// var jwan=new User({
-//  	_id:new mongoose.Types.ObjectId(),
-//  	username:'Areej',
-//  	password:'wdf',
-//  	// items:[{name:'iphone',type:'apple',description:'dsfg',price:1000,image:'dgsfd'}]
-//  })
-
-//  jwan.save(function(err,jwan){
-//  	if(err){
-//  		console.log(err);
-//  	}else{
-//  		console.log(jwan);
-//  	}
-//  })
-
-//  var item1=new Item({
-//  	user: jwan._id,
-//  	name:'iphone',
-//  	type:'apple',
-//  	description:'dsfg',
-//  	price:1000,
-//  	image:'dgsfd'
-//  })
-//  item1.save(function(err){
-//  	if(err){
-//  		console.log(err);
-//  	}
-//  })

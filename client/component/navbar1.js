@@ -79,6 +79,9 @@ $scope.SignUp=function(){
 // get value of username and password input
 var Suser=$('#Suser').val();
 var Spass=$('#Spass').val();
+if(Suser.length<3 || Spass.length<3){
+  alert('please sure username or password At least 3 characters');
+}else{
 // send username and password value
   $.ajax({
     async:false,
@@ -107,6 +110,7 @@ var Spass=$('#Spass').val();
   })
 };
 ///////////////////////////////////////////
+}
 
 })
 
