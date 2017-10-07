@@ -28,6 +28,7 @@
     "mpath": "^0.3.0",
     "regexp-clone": "0.0.1",
     "resolve-from": "^4.0.0",
-    "sliced": "^1.0.1"
+    "sliced": "^1.0.1",
+    "sweetalert": "^2.0.5"
   }
 }
