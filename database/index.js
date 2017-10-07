@@ -5,16 +5,16 @@ var mongoDB= 'mongodb://greenfield:conj1234@ds163494.mlab.com:63494/greenfield';
 mongoose.connect( mongoDB, { useMongoClient: true });
 
 
-
+//each user has many items so the relationship between userSchema and itemSchema is 1:M 
 var userSchema = new Schema({
 	_id: Schema.Types.ObjectId,
 	username: String,
 	password: String,
-	items: [{ type: Schema.Types.ObjectId, ref:'Item'}]
+	items: [{ type: Schema.Types.ObjectId, ref:'Item'}] 
 });
 
 var itemSchema = new Schema({
-	user: { type: Schema.Types.ObjectId, ref:'User'},
+	user: { type: Schema.Types.ObjectId, ref:'User'}, //Forign key refers to the userSchema. 
 	username:String,
 	name: String,
 	description: String,
