@@ -12,7 +12,7 @@ var Adisc=$('#Adisc').val();
   // get input value of image item from add item model
 var Aimage=$('#Aimage').val();
 // send the values to the server
-if(Aname.length<4 || Aprice.length<4  || Aimage.length<4 ){
+if(Aname.length<3 || Aprice.length<1  || Aimage.length<3 ){
   alert('please fill out text')
 }else{
 $.ajax({
