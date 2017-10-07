@@ -1,8 +1,8 @@
 var mongoose=require('mongoose');
 var Schema = mongoose.Schema;
 
-var mongoDB= 'mongodb://127.0.0.1/greenfield';
-mongoose.connect( process.env.DBSERVER ||mongoDB, { useMongoClient: true });
+var mongoDB= 'mongodb://greenfield:conj1234@ds163494.mlab.com:63494/greenfield';
+mongoose.connect( mongoDB, { useMongoClient: true });
 
 
 
@@ -35,40 +35,3 @@ module.exports={
 	User:User,
 	Item:Item
 };
-// module.exports=Item;
-
-// var jwan=new User({
-//  	_id:new mongoose.Types.ObjectId(),
-//  	username:'Areej',
-//  	password:'wdf',
-//  	// items:[{name:'iphone',type:'apple',description:'dsfg',price:1000,image:'dgsfd'}]
-//  })
-
-//  jwan.save(function(err,jwan){
-//  	if(err){
-//  		console.log(err);
-//  	}else{
-//  		console.log(jwan);
-//  	}
-//  })
-
-//  var item1=new Item({
-//  	user: jwan._id,
-//  	name:'iphone',
-//  	type:'apple',
-//  	description:'dsfg',
-//  	price:1000,
-//  	image:'dgsfd'
-//  })
-//  item1.save(function(err){
-//  	if(err){
-//  		console.log(err);
-//  	}
-//  })
-
-
-
-
-
-
-

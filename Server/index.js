@@ -24,19 +24,6 @@ app.use(session({
 	saveUninitialized: true
 }));
 
-// var comparePassword=function(attemptedPassword, callback) {
-//     bcrypt.compare(attemptedPassword, this.get('password'), function(err, isMatch) {
-//       callback(isMatch);
-//     });
-//  }
-
-// var checkUser = function(req, res, next){
-//   if (!isLoggedIn(req)) {
-//     res.redirect('/login');
-//   } else {
-//     next();
-//   }
-// };
 var user = "";
 var createSession = function(req, res, newUser) {
   return req.session.regenerate(function() {
@@ -45,19 +32,6 @@ var createSession = function(req, res, newUser) {
       res.redirect('/');
     });
 };
-// app.use(errorHandler);
-// app.post('/add',function(req,res) {
-// 	var hanan = JSON.parse(req.body)
-// console.log('hi');
-// console.log(hanan);
-// // res.send(hanan)
-// res.end()
-// })
-// app.get('/add',function(req,res) {
-// 	var hanan = req.body
-// 	res.send(hanan)
-// })
-
 app.get('/login', function(req,res){
 	res.redirect('/')
 })
@@ -71,22 +45,18 @@ app.post('/login',function(req,res) {
 		}else{
 			if(!user){
 				result='true';
-				console.log(result,'there is no user')
 				res.redirect('/');            //********************************
 			}else{
 				if(password===user.password){
-                   
+
                    result='false';
-                   console.log(result,'correct password')
-                   console.log(user)
                  createSession(req,res,user);
 				}else{
-					console.log(result,'wrong password')
 					res.redirect('/');
 				}
 
 
-			}	
+			}
 		}
 	});
 });
@@ -101,7 +71,7 @@ app.post('/signup',function(req, res){
 		}else{
 			if(user){
 				result='false';
-				console.log('this user already exist')
+				res.redirect('/');
 
 			}else{
 				var newUser = {
@@ -110,28 +80,24 @@ app.post('/signup',function(req, res){
 					password : password
 				}
 				models.User.create(newUser).then(function(){
+					result='true';
 					createSession(req,res,newUser);
-					
+
 				})
-				result='true';
+
 			}
 		}
 	})
 });
-
 app.get('/result',function (req,res) {
 	res.end(result);
-
 })
-
-
 app.post('/logout',function (req,res) {
 	req.session.destroy(function() {
 		result='true';
     res.redirect('/');
   });
 });
-
 app.post('/add',function(req,res){
 	var data = JSON.parse(Object.keys(req.body)[0]);
 	var n=data.name;
@@ -150,29 +116,10 @@ app.post('/add',function(req,res){
  	models.Item.create(newItem)
  	res.redirect('/')
 })
-
 app.get('/data',function(req,res){
 	models.Item.find({},function(err,items){
      console.log(items);
      res.send(items)
 	})
 })
-
-
-app.listen(port,function(){
-	console.log('conjScribers listeninig on port '+port);
-})
-
- // var user=new User({
- // 	_id:1,
- // 	username:'Areej',
- // 	password:'wdf'
- // })
-
- // user.save(function(err,user){
- // 	if(err){
- // 		console.log(err);
- // 	}else{
- // 		console.log(user);
- // 	}
- // })
+app.listen(port)
