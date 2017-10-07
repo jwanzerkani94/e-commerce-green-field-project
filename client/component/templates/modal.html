@@ -1,0 +1,92 @@
+<!-- Modal for sign Up -->
+<div class="modal fade w3-animate-zoom" id="myModal" role="dialog">
+  <div class="modal-dialog w3-animate-zoom">
+<!-- Sign Up Modal content -->
+    <div class="modal-content w3-animate-zoom">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Sign Up</h4>
+      </div>
+      <div class="modal-body w3-animate-zoom">
+<!-- input for username text -->
+<div class="input-group">
+<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="Suser" type="text" class="input form-control w3-animate-zoom" placeholder="Username"><br>
+</div><br>
+<!-- input for password text -->
+<div class="input-group">
+ <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span><input id="Spass" type="password" class="input form-control w3-animate-zoom" placeholder="Password"><br>
+<!-- button to call SignUp function in navbar1.js -->
+</div>
+      </div>
+      <div class="modal-footer">
+        <button  class="navbar-left btn btn-default w3-animate-zoom" ng-click="SignUp()" data-dismiss="modal"><span class="glyphicon glyphicon-ok"></span>Submit</button>
+        <button type="button" class="btn btn-default w3-animate-zoom" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!--=============================================================================================  -->
+<!-- Modal for My card list but not done yet-->
+<div ng-controller='myctrl' class="modal fade w3-animate-zoom" id="myModal3" role="dialog">
+  <div class="modal-dialog w3-animate-zoom">
+<!-- My card list Modal content -->
+    <div class="modal-content w3-animate-zoom">
+      <div class="modal-header">
+        <button type="button" class="close w3-animate-zoom" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">My cart list</h4>
+      </div>
+      <div class="modal-body w3-animate-zoom">
+        <div>{{userdata}}</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default w3-animate-zoom" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--=============================================================================================  -->
+
+<!-- Modal for My add item-->
+<div ng-controller='myadd' class="modal fade w3-animate-zoom" id="myModal2" role="dialog">
+  <div class="modal-dialog w3-animate-zoom">
+<!-- add item Modal content -->
+    <div class="modal-content w3-animate-zoom">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Item</h4>
+      </div>
+      <div class="modal-body w3-animate-zoom">
+<!-- input for item name -->
+<div class="input-group">
+  <span class="input-group-addon">Name:</span>
+    <input id="Aname" type="text" class="input form-control w3-animate-zoom" placeholder="Item name"><br>
+ </div><br>
+<!-- input for item price -->
+<div class="input-group">
+  <span class="input-group-addon">$</span>
+    <input id="Aprice" type="number" class="input form-control w3-animate-zoom" placeholder="price"><br>
+  <span class="input-group-addon">.00</span>
+</div><br>
+<!-- input for item description -->
+
+<div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
+    <input id="Adisc" maxlength="50" type="text" class="input form-control w3-animate-zoom" placeholder="Item discription"><br>
+    <span class="input-group-addon">50 maximum</span>
+</div><br>
+<!-- input for item image -->
+<div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+    <input id="Aimage" type="text" class="input form-control w3-animate-zoom" placeholder="image src"><br>
+</div><br>
+<!-- call AddITem function in add.js and send input to the function  -->
+
+      </div>
+      <div class="modal-footer ">
+        <button  class="navbar-left btn btn-default w3-animate-zoom" data-dismiss="modal" ng-click='AddItem()'><i class="glyphicon glyphicon-floppy-disk"></i>Add</button>
+        <button type="button" class="btn btn-default w3-animate-zoom" data-dismiss="modal" ><span class="glyphicon glyphicon-remove-circle"></span>Close</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,7 +2,7 @@
 <center>
 <nav class="navbar navbar-inverse form-group w3-animate-opacity"><br>
   <ul>
-  
+
 <input class="form-control w3-animate-zoom" id="search" type="text" ng-model="search"  placeholder="Search..">
 </ul>
 <br></nav>
@@ -19,7 +19,7 @@
   background-position: 10px 10px;
   background-repeat: no-repeat;
   padding: 12px 20px 12px 40px;
-  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
 }
 #search[type=text]:focus {
@@ -39,33 +39,9 @@ Name:{{item.name}}<br>
 price: {{item.price}} JD<br>
 <!-- display discribtion for item -->
 <div class="overlay">
-   <div class="text"><p>Description : <br>{{item.description}}<br><br>By: <br>{{item.username}}</p>
-    <button class="btn btn-primary btn-md"  ng-click="addtocard($index)">add to card</button><br><br></div>
-  </div>
+   <div class="text"><br>Description : <p>{{item.description}}</p>By : {{item.username}}
+    <button class="btn btn-primary btn-md"  type="button" ng-click="addtocard($index)" >add to cart</button><br><br></div>
+ </div>
   </div>
 </div>
 </div></center>
-<!-- Modal for sign Up -->
-<div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog">
-<!-- Sign Up Modal content -->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Sign Up</h4>
-      </div>
-      <div class="modal-body">
-       
-<input id="Suser" type="text" class="form-control w3-animate-zoom" placeholder="Username"><br>
-<input id="Spass" type="password" class="form-control w3-animate-zoom" placeholder="Password"><br>
-<button  class="btn btn-default w3-animate-zoom" ng-click="SignUp()">Submit</button>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-
